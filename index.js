@@ -29,6 +29,11 @@ const PORT = 3000;
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
+
+app.get("/", (req, res) => {
+  res.send("Root route works!");
+});
+
 // Automatically serve your UI files from the public folder root
 app.use(express.static("public"));
 
