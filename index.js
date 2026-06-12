@@ -23,16 +23,14 @@ if (!process.env.OPENAI_API_KEY) {
 }
 
 const app = express();
-const PORT = 3000;
+const PORT =process.env.PORT || 3000;
 
 // Increase payload limits to safely accept uploaded user image Base64 data strings
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 
-app.get("/", (req, res) => {
-  res.send("Root route works!");
-});
+
 
 // Automatically serve your UI files from the public folder root
 app.use(express.static("public"));
